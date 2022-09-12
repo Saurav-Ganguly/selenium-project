@@ -1,5 +1,6 @@
 from selenium import webdriver
 #webdriver -> web browser
+#This is a simple use of Selenium Driver
 
 
 def get_driver():
