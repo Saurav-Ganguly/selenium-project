@@ -1,29 +1,9 @@
-from selenium import webdriver
-#webdriver -> web browser
-#This is a simple use of Selenium Driver
+from getting_dynamic_data import get_data, clean_text
 
-
-def get_driver():
-    #options to make browsing easier
-    options = webdriver.ChromeOptions()
-    options.add_argument("disable-infobars")
-    options.add_argument("start-maximized")
-    # on linux machine
-    options.add_argument("disable-dev-shm-usage")
-    #sandboxing -> to avoid security
-    options.add_argument("no-sandbox")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_argument("diable-blink-features-AutomationControlled")
-
-    driver = webdriver.Chrome(options=options)
-    driver.get("http://automated.pythonanywhere.com/")
-    return driver
+xpath_dynamic = "/html/body/div[1]/div/h1[2]"
 
 
 def main():
-    driver = get_driver()
-    element = driver.find_element("xpath", "/html/body/div[1]/div/h1[1]")
-    return element.text
-
+    return clean_text(xpath_dynamic)
 
 print(main())
